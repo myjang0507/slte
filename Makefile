@@ -380,7 +380,18 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
 		   -fno-delete-null-pointer-checks \
-		   -fdiagnostics-show-option -Werror
+		   -fdiagnostics-show-option -Werror\
+	$(call cc-disable-warning,error=unused-variable,)\
+	$(call cc-disable-warning,error=unused-const-variable,)\
+	$(call cc-disable-warning,error=misleading-indentation,)\
+	$(call cc-disable-warning,error=shift-overflow,)\
+	$(call cc-disable-warning,error=tautological-compare,)\
+	$(call cc-disable-warning,error=implicit-function-declaration)\
+	$(call cc-disable-warning,error=int-conversion)\
+	$(call cc-disable-warning,error=deprecated-declarations)\
+	$(call cc-disable-warning,error=unused-label)\
+	$(call cc-disable-warning,error=implicit-int)\
+	$(call cc-disable-warning,error=strict-prototypes)
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
 KBUILD_AFLAGS   := -D__ASSEMBLY__
