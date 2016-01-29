@@ -14,7 +14,6 @@ build_kernel.sh
 *~
 
 #Others
-slte/ramdisk
 HostPC/
 utility/
 *.patch
