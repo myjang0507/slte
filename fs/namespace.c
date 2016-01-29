@@ -2230,7 +2230,7 @@ int copy_mount_options(const void __user * data, unsigned long *where)
 	return 0;
 }
 
-char *copy_mount_string(const void __user *data, char **where)
+char *copy_mount_string(const void __user *data)
 {
 	return data ? strndup_user(data, PAGE_SIZE) : NULL;
 }

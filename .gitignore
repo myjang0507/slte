@@ -7,6 +7,7 @@ arch/*/include/generated
 
 # Script Files
 test.sh
+patch.sh
 set_env.sh
 build_kernel.sh
 
