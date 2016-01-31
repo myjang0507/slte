@@ -1,6 +1,6 @@
 VERSION = 3
 PATCHLEVEL = 10
-SUBLEVEL = 9
+SUBLEVEL = 94
 EXTRAVERSION =
 NAME = TOSSUG Baby Fish
 
@@ -393,7 +393,9 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 	$(call cc-disable-warning,error=implicit-int)\
 	$(call cc-disable-warning,error=strict-prototypes)\
 	$(call cc-disable-warning,error=sequence-point)\
-	$(call cc-disable-warning,error=unused-function)
+	$(call cc-disable-warning,error=unused-function)\
+	$(call cc-disable-warning,error=incompatible-pointer-types)\
+	$(call cc-disable-warning,error=declaration-after-statement)
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
 KBUILD_AFLAGS   := -D__ASSEMBLY__
@@ -633,6 +635,8 @@ ifndef CONFIG_FUNCTION_TRACER
 KBUILD_CFLAGS	+= -fomit-frame-pointer
 endif
 endif
+
+KBUILD_CFLAGS   += $(call cc-option, -fno-var-tracking-assignments)
 
 ifdef CONFIG_DEBUG_INFO
 KBUILD_CFLAGS	+= -g
