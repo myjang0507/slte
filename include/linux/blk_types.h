@@ -123,7 +123,6 @@ struct bio {
 #define BIO_RESET_BITS	13
 #define BIO_OWNS_VEC	13	/* bio_free() should free bvec */
 
-
 /*
  * Added for Req based dm which need to perform post processing. This flag
  * ensures blk_update_request does not free the bios or request, this is done
